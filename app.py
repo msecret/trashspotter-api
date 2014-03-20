@@ -1,5 +1,6 @@
 import os
 
+from gevent import monkey; monkey.patch_all()
 import bottle
 from bottle import route
 import json
@@ -12,6 +13,7 @@ client = MongoClient('localhost', 27017)
 db = client['dev-trashspotter']
 
 @route('/awake', method='GET')
+@enable_cors
 def get_awake():
   return 'f'
 
