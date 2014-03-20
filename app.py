@@ -1,3 +1,4 @@
+import os
 
 import bottle
 from bottle import route
@@ -11,4 +12,4 @@ db = client['dev-trashspotter']
 def get_wakeup():
   return 'f'
 
-bottle.run(host='localhost', port=8080, debug=True)
+bottle.run(server='gevent', port=os.environ.get('PORT', 5000))
